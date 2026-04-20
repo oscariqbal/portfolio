@@ -3,6 +3,9 @@ import { Inter, Manrope } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 
+import Header from '@/components/header';
+import Footer from '@/components/footer';
+
 const inter = Inter({subsets:['latin'],variable:'--font-inter'});
 const manrope = Manrope({subsets:['latin'],variable:'--font-manrope'});
 
@@ -18,12 +21,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={cn("h-full", "antialiased", "font-sans", inter.variable, manrope.variable, "dark", "scroll-smooth")}
-    >
+    <html lang="en" className={cn("h-full", "antialiased", "font-sans", inter.variable, manrope.variable, "dark", "scroll-smooth")}>
       <body className="min-h-full flex flex-col">
-        {children}
+        <Header />
+        <main className="container mx-auto bg-background border border-green-500">{children}</main>
+        <Footer />
       </body>
     </html>
   );

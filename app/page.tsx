@@ -1,77 +1,116 @@
+import * as React from "react"
 import Image from "next/image";
-import { Card, CardTitle, CardDescription, CardContent, CardHeader } from "@/components/ui/card";
+import { Card, CardTitle, CardDescription, CardContent, CardHeader, CardFooter } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator"
+import { Button } from "@/components/ui/button"
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area"
+import { FaEnvelope, FaLinkedin, FaGithub, FaInstagram } from "react-icons/fa";
 
 export default function Home() {
   return (
-    <div>
-      <header className="h-[10vh] w-full sticky top-0 z-50 flex items-end">
-        <nav className='h-[70%] font-heading container mx-auto bg-foreground/10 backdrop-blur-sm rounded-md pl-5 border border-foreground/15'>
-          <ul className='h-full w-full flex items-center gap-6'>
-            <li>
-              <a href='#top'>
-                <Image src="/logo.svg" alt="icon" width={30} height={30} className="rounded-sm"/>
-              </a>
-            </li>
-            <li><a className="hover:text-muted-foreground" href='#projects'>Projects</a></li>
-            <li><a className="hover:text-muted-foreground" href='#contact'>Contact</a></li>
-          </ul>
-        </nav>
-      </header>
-      <main>
-        <section id='top' className='h-[60vh] w-full bg-linear-to-b from-background from-95% to-chart-4 to-100%'>
-          <div className='h-full w-full container mx-auto flex justify-between'>
-            <div className="h-full w-[50%] flex flex-col gap-5 justify-center">
-              <h1 className="font-heading text-4xl">Oscar Iqbal Mustofa</h1>
-              <p className="text-justify opacity-60">
-                I am an Informatics graduate specializing in Data Science, Artificial Intelligence, and Web Development. Proficient in several programming languages, including Python, JavaScript, and PHP.
-              </p>
-            </div>
-            {/*
-            <div className="h-full w-[47.5%]">
-              <div className="h-full w-full flex items-center justify-center">
-                <Image
-                    className=""
-                    src="/img/fireworks.png"
-                    alt="fireworks.png"
-                    width={250}
-                    height={250}
-                />
-              </div>
-            </div>
-            */}
+    <>
+      <section id='top' className='h-[60vh] w-full'>
+        <div className='h-full w-full flex justify-between border border-red-500'>
+          <div className="h-full w-[55%] flex flex-col gap-5 justify-center border border-yellow-500">
+            <h1 className="font-heading text-4xl">Oscar Iqbal Mustofa</h1>
+            <p className="text-justify opacity-60">
+              An Informatics graduate focusing in Data Science, Artificial Intelligence, and Web Development. 
+              Proficient in Python and Javascript, also have substantial experience in managing and contributing to various projects, both independently and collaboratively. 
+            </p>
+            <Button className="w-full">
+              Download CV
+            </Button>
           </div>
-        </section>
-        <section id='projects' className='h-[164vh] w-full bg-linear-to-b from-chart-4 from-10% to-chart-2 to-100%'>
-          <div className='h-full w-full container mx-auto flex justify-between items-center border border-red-500'>
-            <div className="h-[90%] w-[47.5%] border border-yellow-500">
-              <Card>
-                <CardContent>
-                  Awkowakaw dowkodwa dksokowd awokaowkwa okwawko.
-                </CardContent>
-                <CardHeader>
-                  <CardTitle>
-                    Awakowak
-                  </CardTitle>
-                  <CardDescription>
-                    Aawokowa owkdowkda
-                  </CardDescription>
-                </CardHeader>
-              </Card>
+          <div className="h-full w-[35%]">
+            <div className="h-full w-full flex items-center justify-center border border-yellow-500">
+              <Image
+                  className="rounded-xl"
+                  src="/img/profile.jpg"
+                  alt="profile.jpg"
+                  width={360}
+                  height={360}
+              />
             </div>
-            <div className="h-[90%] w-[47.5%] border border-yellow-500"></div>
-          </div>
-        </section>
-        <section id='contact' className='h-[75vh] w-full'>
-          <div className='h-full w-full relative container mx-auto z-10 border border-red-500 '> 
-            <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[35vw] w-[35vw] z-5 bg-radial from-foreground from-1% to-background to-65% opacity-70'></div>
-          </div>
-        </section>
-      </main>
-      <footer className='h-[19vh] w-full bg-background'>
-        <div className='h-full w-full container mx-auto border border-red-500'>
-
+          </div> 
         </div>
-      </footer>
-    </div>
+      </section>
+      <section id="accordion-skills">
+
+      </section>
+      <section id='case-study' className='h-[164vh] w-full'>
+        <div className='h-full w-full flex justify-between items-center border border-red-500'>
+          <div className="h-[90%] w-[47.5%] flex flex-col justify-between border border-yellow-500">
+            <Card>
+              <CardContent className="border border-white-500">
+                <div className="">
+                  
+                </div>
+                <div className="">
+                  
+                </div>
+              </CardContent>
+              <CardHeader>
+                <CardTitle>
+                  Awakowak
+                </CardTitle>
+                <CardDescription>
+                  Aawokowa owkdowkda
+                </CardDescription>
+              </CardHeader>
+            </Card>
+            <Card>
+              <CardContent>
+                Awkowakaw dowkodwa dksokowd awokaowkwa okwawko.
+              </CardContent>
+              <CardHeader>
+                <CardTitle>
+                  Awakowak
+                </CardTitle>
+                <CardDescription>
+                  Aawokowa owkdowkda
+                </CardDescription>
+              </CardHeader>
+            </Card>
+          </div>
+          <div className="h-[90%] w-[47.5%] border border-yellow-500"></div>
+        </div>
+      </section>
+      <section id='contact' className='h-[88vh] w-full'>
+        <div className='h-full w-full relative flex items-center justify-center border border-red-500'> 
+          <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[42vw] w-[42vw] z-10 bg-radial from-foreground from-1% to-background to-70% opacity-70 border border-yellow-500'></div>
+          <div className="h-[70%] w-[70%] relative flex items-center justify-between z-20 border border-yellow-500">
+            <Card>
+              <Image src="/img/profile.jpg" alt="icon" width={250} height={170} className="rounded-sm"/>
+              <CardHeader>
+                <CardTitle className="text-lg font-semibold">
+                  Hi there, I'm Iqbal!
+                </CardTitle>
+                <CardDescription >
+                  dawdwdsadw
+                </CardDescription>
+              </CardHeader>
+              <Separator />
+              <CardFooter>
+                <Button className="w-full">
+                  Download CV
+                </Button>
+              </CardFooter>
+            </Card>
+            <Card>
+              <CardHeader>
+                <CardTitle>
+
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <ScrollArea>
+                  Your scrollable content here.
+                </ScrollArea>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+    </>      
   );
 }
