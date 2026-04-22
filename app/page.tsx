@@ -1,171 +1,83 @@
 import Image from "next/image";
 import { Card, CardTitle, CardDescription, CardContent, CardHeader, CardFooter } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator"
-import { Button } from "@/components/ui/button"
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
-import { Marquee } from "@/components/ui/marquee"
-import { cn } from "@/lib/utils"
+import { Separator } from "@/components/ui/separator";
+import { Button } from "@/components/ui/button";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
+import { MarqueeWithTooltip } from "@/components/ui/marqueewithtooltip";
+import { FadeInOnScroll } from "@/components/ui/fadeinonscroll";
 
 const techstack = [
-  {
-    name: "PHP",
-    img: "php",
-  },
-  {
-    name: "Laravel",
-    img: "laravel",
-  },
-  {
-    name: "Javascript",
-    img: "javascript",
-  },
-  {
-    name: "React",
-    img: "react",
-  },
-  {
-    name: "NextJS",
-    img: "nextjs",
-  },
-  {
-    name: "Typescript",
-    img: "typescript",
-  },
-  {
-    name: "Tailwind",
-    img: "tailwind",
-  },
-  {
-    name: "Python",
-    img: "python",
-  },
-  {
-    name: "Scikit-learn",
-    img: "scikit-learn",
-  },
-  {
-    name: "TensorFlow",
-    img: "tensorflow",
-  },
-  {
-    name: "Pytorch",
-    img: "pytorch",
-  },
+  { name: "Javascript", img: "javascript" },
+  { name: "React", img: "react" },
+  { name: "NextJS", img: "nextjs" },
+  { name: "Typescript", img: "typescript" },
+  { name: "Tailwind", img: "tailwind" },
+  { name: "Python", img: "python" },
+  { name: "Scikit-learn", img: "scikit-learn" },
+  { name: "TensorFlow", img: "tensorflow" },
+  { name: "Pytorch", img: "pytorch" },
 ]
-
-const row = techstack.slice(0)
-
-const TechstackPict = ({
-  img,
-  name,
-}: {
-  img: string
-  name: string
-}) => {
-  return (
-    <Tooltip>
-      <TooltipTrigger asChild>
-        <div
-          className={cn(
-            "relative cursor-pointer rounded-xl border p-4",
-            " bg-foreground/10",
-            "flex items-center justify-center",
-            "cursor-default"
-          )}
-        >
-          <img
-            className="rounded-sm"
-            width="40"
-            height="40"
-            alt={name}
-            src={`${img}.svg`}
-          />
-        </div>
-      </TooltipTrigger>
-      <TooltipContent>
-        <p>{name}</p>
-      </TooltipContent>
-    </Tooltip>
-  )
-}
 
 export default function Home() {
   return (
     <>
       {/* Profile Section */}
-      <section id='top' className='h-[70vh] w-full'>
-        <div className='h-full w-full flex justify-between'>
-          <div className="h-full w-[55%] flex flex-col gap-8 justify-center">
-            <h1 className="font-heading text-5xl">Oscar Iqbal Mustofa</h1>
-            <p className="text-justify opacity-60">
-              An Informatics graduate focusing in Data Science, Artificial Intelligence, and Web Development. 
-              Proficient in Python and Javascript, I also have substantial experience in managing and contributing to various projects, both independently and collaboratively. 
-            </p>
-            <Button className="w-[30%]">Iqbal's Resume</Button>
+      <section id='top' className='h-[80vh] w-full flex justify-between px-4'>
+        <div className="h-full w-[55%] flex flex-col gap-8 justify-center">
+          <h1 className="font-heading text-5xl">Oscar Iqbal Mustofa</h1>
+          <p className="text-justify opacity-60">
+            An Informatics graduate focusing in Data Science, Artificial Intelligence, and Web Development. 
+            Proficient in Python and Javascript, I also have substantial experience in managing and contributing to various projects, both independently and collaboratively. 
+          </p>
+          <Button className="w-[25%] font-heading">Iqbal's Resume</Button>
+        </div>
+        <div className="h-full w-[35%]">
+          <div className="h-full w-full flex items-center justify-end">
+            <Image
+                className="rounded-xl"
+                src="/img/profile.jpg"
+                alt="profile.jpg"
+                width={360}
+                height={360}
+            />
           </div>
-          <div className="h-full w-[35%]">
-            <div className="h-full w-full flex items-center justify-center">
-              <Image
-                  className="rounded-xl"
-                  src="/img/profile.jpg"
-                  alt="profile.jpg"
-                  width={360}
-                  height={360}
-              />
-            </div>
-          </div> 
         </div>
       </section>
       {/* Skills Section */}
-      <section id="marquee-skills" className="h-[40vh] w-full flex items-center">
-        <div className="relative flex w-full flex-col items-center gap-10 overflow-hidden">
+      <section id="marquee-skills" className="h-[30vh] w-full">
+        <FadeInOnScroll className="h-full w-full flex flex-col items-center justify-center gap-8" delay={0.3}>
           <p className="opacity-60">Tech stack which I use on a daily basis.</p>
-          <Marquee pauseOnHover className="[--duration:30s] [--gap:4rem]">
-            {row.map((techstack) => (
-              <TechstackPict key={techstack.name} {...techstack} />
-            ))}
-          </Marquee>
-          <div className="from-background pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r"></div>
-          <div className="from-background pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l"></div>
-        </div>
-      </section>
-      {/* Case Study Section */}
-      <section id='case-study' className='h-[164vh] w-full'>
-        <div className='h-full w-full flex justify-between items-center border border-red-500'>
-          <div className="h-[90%] w-[47.5%] flex flex-col justify-between border border-yellow-500">
-            <Card>
-              <CardContent className="border border-white-500">
-                <div className="">
-                  
-                </div>
-                <div className="">
-                  
-                </div>
-              </CardContent>
-              <CardHeader>
-                <CardTitle>
-                  Awakowak
-                </CardTitle>
-                <CardDescription>
-                  Aawokowa owkdowkda
-                </CardDescription>
-              </CardHeader>
-            </Card>
-            <Card>
-              <CardContent>
-                Awkowakaw dowkodwa dksokowd awokaowkwa okwawko.
-              </CardContent>
-              <CardHeader>
-                <CardTitle>
-                  Awakowak
-                </CardTitle>
-                <CardDescription>
-                  Aawokowa owkdowkda
-                </CardDescription>
-              </CardHeader>
-            </Card>
+          <div className="relative flex w-full overflow-hidden">
+            <MarqueeWithTooltip items={techstack}></MarqueeWithTooltip>
           </div>
-          <div className="h-[90%] w-[47.5%] border border-yellow-500"></div>
+        </FadeInOnScroll>
+      </section>
+      {/* Projects Section */}
+      <section id='projects' className='h-[125vh] w-full flex flex-col justify-center border border-red-500'>
+        <div className="h-[15vh] w-full flex">
+          <h2 className="font-heading text-4xl m-auto text-center">Explore Iqbal's Projects</h2>
+        </div>
+        <div className='h-[70vh] w-full flex justify-between items-center p-4 border border-red-500'>
+          <Carousel className="h-full w-full max-w-[12rem] border border-red-500">
+            <CarouselContent>
+              <CarouselItem>
+                <Card>
+                  <CardHeader>
+                    <CardTitle></CardTitle>
+                    <CardDescription></CardDescription>
+                  </CardHeader>
+                  <CardContent>
+
+                  </CardContent>
+                </Card>
+              </CarouselItem>
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
+        </div>
+        <div className="h-[15vh] w-full flex">
+          <Button className="w-[12.5%] m-auto font-heading">View All Projects</Button>
         </div>
       </section>
       {/* Contact Section */}

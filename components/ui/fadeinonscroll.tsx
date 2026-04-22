@@ -15,7 +15,7 @@ type FadeInOnScrollProps = {
   triggerOnce?: boolean;
 };
 
-export default function FadeInOnScroll({
+function FadeInOnScroll({
   children,
   className,
   direction = 'up',
@@ -46,3 +46,5 @@ export default function FadeInOnScroll({
     </motion.div>
   );
 }
+
+export { FadeInOnScroll }
