@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function Header() {
     return (
         <header className="h-[15vh] w-full sticky top-0 z-50 flex items-center">
-        <nav className='h-[50%] font-heading container mx-auto bg-foreground/10 backdrop-blur-xs rounded-xl pl-4 border border-foreground/15'>
+        <nav className='h-[50%] w-[90%] md:w-[85%] font-heading mx-auto bg-background/10 backdrop-blur-xs rounded-xl px-2 md:px-4 border border-foreground/15'>
           <ul className='h-full w-full flex items-center gap-6'>
             <li>
               <a href='#top'>

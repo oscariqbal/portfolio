@@ -16,13 +16,13 @@ type ItemProps = {
 function MarqueeWithTooltip({items}: ItemProps) {
   return (
     <>
-      <Marquee className="[--duration:30s] [--gap:4rem]">
+      <Marquee className="[--duration:30s] [--gap:2rem] md:[--gap:4rem]">
         {items.map((items) => (
           <Tooltip key={items.name}>
             <TooltipTrigger asChild>
               <div
                 className={cn(
-                  "relative rounded-xl border p-4",
+                  "relative rounded-xl border p-2 md:p-4",
                   "bg-foreground/10",
                   "flex items-center justify-center",
                 )}

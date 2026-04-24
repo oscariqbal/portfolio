@@ -25,7 +25,7 @@ export default function RootLayout({
     <html lang="en" className={cn("h-full", "antialiased", "font-sans", inter.variable, manrope.variable, "dark", "scroll-smooth")}>
       <body className="min-h-full flex flex-col">
         <Header />
-        <main className="container mx-auto bg-background">
+        <main className="w-[90vw] md:w-[85vw] mx-auto bg-background">
           <Providers>{children}</Providers>
         </main>
         <Footer />
