@@ -5,6 +5,8 @@ import { Button } from "@/components/ui/button";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
 import { MarqueeWithTooltip } from "@/components/ui/marqueewithtooltip";
 import { FadeInOnScroll } from "@/components/ui/fadeinonscroll";
+import { Badge } from "@/components/ui/badge"
+import { ArrowUpRightIcon } from "lucide-react"
 
 const techstack = [
   { name: "Javascript", img: "javascript" },
@@ -24,6 +26,7 @@ const projects = [
     description: "", problem, dataset, approach, model, evaluation, conclusion
     category: "",
     timestamp: "",
+    link: "",
     img1: "",
     img2: ""
   },*/
@@ -32,6 +35,7 @@ const projects = [
     description: "Facing several challenges in corporate governance audit process, this project proposed dense-and-rerank retrieval system that has been evaluated as an appropriate approach for developing an AI-based corporate governance audit solution.",
     category: "Individual",
     timestamp: "Sept 2025 - Feb 2026",
+    link: "",
     img1: "1-1v2",
     img2: "1-2v2"
   },
@@ -40,6 +44,7 @@ const projects = [
     description: "",
     category: "",
     timestamp: "",
+    link: "",
     img1: "",
     img2: ""
   },
@@ -48,6 +53,7 @@ const projects = [
     description: "",
     category: "",
     timestamp: "",
+    link: "",
     img1: "",
     img2: ""
   },
@@ -56,6 +62,7 @@ const projects = [
     description: "",
     category: "",
     timestamp: "",
+    link: "",
     img1: "",
     img2: ""
   },
@@ -64,6 +71,7 @@ const projects = [
     description: "",
     category: "",
     timestamp: "",
+    link: "",
     img1: "",
     img2: ""
   },
@@ -72,6 +80,7 @@ const projects = [
     description: "",
     category: "",
     timestamp: "",
+    link: "",
     img1: "",
     img2: ""
   },
@@ -80,6 +89,7 @@ const projects = [
     description: "",
     category: "",
     timestamp: "",
+    link: "",
     img1: "",
     img2: ""
   },
@@ -87,6 +97,7 @@ const projects = [
     description: "",
     category: "",
     timestamp: "",
+    link: "",
     img1: "",
     img2: ""
   },
@@ -104,7 +115,7 @@ export default function Home() {
               An Informatics graduate focusing in Data Science, Artificial Intelligence, and Web Development.
               <span className="hidden md:block"> Proficient in Python and Javascript, I also have substantial experience in managing and contributing to various projects, both independently and collaboratively.</span> 
             </p>
-            <Button size={"sm"} className="font-heading text-xs sm:text-sm md:text-base mx-auto md:mx-0 w-full md:w-[25%] md:h-9 md:gap-1.5 md:px-2.5 md:in-data-[slot=button-group]:rounded-md md:has-data-[icon=inline-end]:pr-2 md:has-data-[icon=inline-start]:pl-2">Iqbal's Resume</Button>
+            <Button size={"sm"} className="cursor-pointer font-heading text-xs sm:text-sm md:text-base mx-auto md:mx-0 w-full md:w-[25%] md:h-9 md:gap-1.5 md:px-2.5 md:in-data-[slot=button-group]:rounded-md md:has-data-[icon=inline-end]:pr-2 md:has-data-[icon=inline-start]:pl-2">Iqbal's Resume</Button>
           </div>
         </div>
         <div className="h-auto md:h-full w-full md:w-[40%] lg:w-[35%] flex order-1 md:order-2">
@@ -132,28 +143,60 @@ export default function Home() {
       </section>
       {/* Projects Section */}
       <section id='projects' className='h-[125vh] w-full flex flex-col justify-center items-center px-2 md:px-4 border border-red-500'>
-        <div className="h-[15vh] w-full flex">
-          <h2 className="font-heading text-xl sm:text-2xl md:text-3xl lg:text-4xl m-auto text-center">Explore Iqbal's Projects</h2>
-        </div>
-
-        <div className='h-[70vh] w-[90%] md:w-full md:px-12'>
-          <Carousel className="h-full border border-green-500">
-            <CarouselContent className="border border-yellow-500">
-              {projects.map(({ name, description, category, timestamp, img1, img2 }) => (
-                <CarouselItem key={name} className="border border-blue-500">
-                  <div className="">
-                    daw
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
-          </Carousel>
-        </div>
-        <div className="h-[15vh] w-full flex">
-          <Button className="w-[12.5%] m-auto font-heading">View All Projects</Button>
-        </div>
+        <FadeInOnScroll className="h-full w-full" delay={0.3}>
+          <div className="h-[15vh] w-full flex mt-10 md:mt-24">
+            <h2 className="font-heading text-xl sm:text-2xl md:text-3xl lg:text-4xl m-auto text-center bg-red-500 sm:bg-blue-500 md:bg-green-500 lg:bg-yellow-500">Explore Iqbal's Projects</h2>
+          </div>
+          <div className='w-[90%] md:w-full md:px-12 mx-auto'>
+            <Carousel className="bg-card rounded-xl">
+              <CarouselContent>
+                {projects.map(({ name, description, category, timestamp, link, img1, img2 }) => (
+                  <CarouselItem key={name}>
+                    <div className="lg:py-[4vh] lg:px-8 flex flex-col lg:flex-row gap-4 lg:gap-8">
+                      <div className="flex flex-col order-2 lg:order-1 lg:w-2/3 px-4 lg:px-0">
+                        <h3 className="pb-4 font-heading text-center lg:text-left text-lg sm:text-xl md:text-2xl lg:text-3xl leading-normal">{name}</h3>
+                        <Separator />
+                        <div className="py-4 mx-auto lg:m-0 flex flex-wrap gap-2">
+                          <Badge>{category}</Badge>
+                          <Badge variant="secondary">{timestamp}</Badge>
+                        </div>
+                        <p className="py-4 text-justify lg:text-left text-muted-foreground text-xs sm:text-sm md:text-base tracking-wide text-base">{description}</p>
+                        <Button variant={"outline"} size={"sm"} asChild className="my-4 cursor-pointer font-heading text-xs sm:text-sm md:text-base w-full lg:w-[25%] md:h-9 md:gap-1.5 md:px-2.5 md:in-data-[slot=button-group]:rounded-md md:has-data-[icon=inline-end]:pr-2 md:has-data-[icon=inline-start]:pl-2">
+                          <a href={`${link}`}>
+                            View Project <ArrowUpRightIcon data-icon="inline-end" />
+                          </a>
+                        </Button>
+                      </div>  
+                      <div className="order-1 lg:order-2 lg:w-1/3 flex flex-col justify-between gap-6">
+                        <Image
+                          className="rounded-lg hidden lg:block"
+                          src={`/img/${img1}.png`}
+                          alt={`${img1}.png`}
+                          width={1919}
+                          height={1031}
+                          sizes="(max-height: 1024px) 20vh"
+                        />
+                        <Image
+                          className="rounded-lg"
+                          src={`/img/${img2}.png`}
+                          alt={`${img2}.png`}
+                          width={1919}
+                          height={1031}
+                          sizes="(max-height: 1024px) 20vh"
+                        />
+                      </div>
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious />
+              <CarouselNext />
+            </Carousel>
+          </div>
+          <div className="h-[10vh] w-[90%] flex mx-auto">
+            <Button size={"sm"} className="cursor-pointer font-heading text-xs sm:text-sm md:text-base m-auto w-full md:w-[25%] md:h-9 md:gap-1.5 md:px-2.5 md:in-data-[slot=button-group]:rounded-md md:has-data-[icon=inline-end]:pr-2 md:has-data-[icon=inline-start]:pl-2">View All Projects</Button>
+          </div>
+        </FadeInOnScroll>
       </section>
       {/* Contact Section */}
       <section id='contact' className='h-[88vh] w-full'>
