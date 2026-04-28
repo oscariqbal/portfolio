@@ -13,7 +13,7 @@ type ItemProps = {
   items: Items[]
 }
 
-function MarqueeWithTooltip({items}: ItemProps) {
+function TechstackMarquee({items}: ItemProps) {
   return (
     <>
       <Marquee className="[--duration:30s] [--gap:2rem] md:[--gap:4rem]">
@@ -48,4 +48,4 @@ function MarqueeWithTooltip({items}: ItemProps) {
   );
 }
 
-export {MarqueeWithTooltip}
+export {TechstackMarquee}

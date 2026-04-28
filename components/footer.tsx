@@ -2,7 +2,7 @@ import { FaEnvelope, FaLinkedin, FaGithub, FaInstagram } from "react-icons/fa";
 
 export default function Footer() {
     return (
-        <footer className='h-[24vh] w-full bg-background'>
+        <footer className='h-[24vh] w-full border border-red-500'>
         <div className='h-full w-full flex container mx-auto pt-2'>
           <div className="my-auto mx-auto font-heading flex flex-col items-center gap-2">
             <p className="text-lg font-semibold">Oscar Iqbal Mustofa</p>
