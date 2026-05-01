@@ -8,29 +8,19 @@ export default function Header() {
           <ul className='h-full w-full flex items-center text-muted-foreground gap-2'>
             <li>
               <Button variant={"ghost"} size={"sm"} asChild>
-                <a href='#hero'>
+                <a href='#home'>
                   <Image src="/logo.svg" alt="icon" width={20} height={20} className="rounded-sm"/>
                 </a>
               </Button>
             </li>
             <li>
               <Button variant={"ghost"} size={"sm"} asChild className="cursor-pointer font-heading text-xs sm:text-sm md:text-base ">
-                <a className="hover:text-foreground" href='#experience'>Experience</a>
-              </Button>
-            </li>
-            <li>
-              <Button variant={"ghost"} size={"sm"} asChild className="cursor-pointer font-heading text-xs sm:text-sm md:text-base ">
-                <a className="hover:text-foreground" href='#tech-arsenal'>Tech Arsenal</a>
+                <a className="hover:text-foreground" href='#about'>About</a>
               </Button>
             </li>
             <li>
               <Button variant={"ghost"} size={"sm"} asChild className="cursor-pointer font-heading text-xs sm:text-sm md:text-base ">
                 <a className="hover:text-foreground" href='#projects'>Projects</a>
-              </Button>
-            </li>
-            <li>
-              <Button variant={"ghost"} size={"sm"} asChild className="cursor-pointer font-heading text-xs sm:text-sm md:text-base ">
-                <a className="hover:text-foreground" href='#profile'>Profile</a>
               </Button>
             </li>
           </ul>

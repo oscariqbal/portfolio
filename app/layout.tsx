@@ -4,7 +4,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 
 import Header from '@/components/header';
-import Hero from '@/components/hero';
+import Home from '@/components/home';
 import Footer from '@/components/footer';
 import { Providers } from "@/components/ui/tooltipwrapper"
 import { LightRays } from "@/components/ui/light-rays";
@@ -32,10 +32,10 @@ export default function RootLayout({
           <LightRays count={5} blur={28} speed={17}/>
           <div className="absolute pointer-events-none inset-0 bg-gradient-to-b from-transparent from-0% via-transparent via-70% md:via-70% to-background to-100%" />
           {/* <div className="fixed top-0 left-0 w-full h-[30vh] border-2 border-red-500 pointer-events-none z-50" /> */}
-          <Hero />
+          <Home />
         </section>
-        <Separator className="my-10"/>
-        <main className="w-[90vw] md:w-[85vw] mx-auto flex flex-col gap-10">
+        <Separator className="my-20"/>
+        <main className="w-[90vw] md:w-[85vw] mx-auto flex flex-col gap-40">
           <Providers>{children}</Providers>
         </main>
         <Footer />
