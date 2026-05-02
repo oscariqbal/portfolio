@@ -4,21 +4,20 @@ import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip
 import { Marquee } from "@/components/ui/marquee"
 import { cn } from "@/lib/utils"
 
-type Items = {
-  name: string
-  img: string
+import { Arsenal } from "@/types/technicalarsenal";
+
+type Props = {
+  data: Arsenal[];
 }
 
-type ItemProps = {
-  items: Items[]
-}
+function TechstackMarquee({data}: Props) {
+  const language = data.find((item) => item.arsenal === "language")
 
-function TechstackMarquee({items}: ItemProps) {
   return (
     <>
-      <Marquee className="[--duration:30s] [--gap:2rem] md:[--gap:4rem]">
-        {items.map((items) => (
-          <Tooltip key={items.name}>
+      <Marquee className="[--duration:30s] [--gap:3rem] md:[--gap:6rem]">
+        {language?.techstacks.map((tech) => (
+          <Tooltip key={tech}>
             <TooltipTrigger asChild>
               <div
                 className={cn(
@@ -29,15 +28,15 @@ function TechstackMarquee({items}: ItemProps) {
               >
                 <img
                   className="rounded-sm"
-                  width="40"
-                  height="40"
-                  alt={items.name}
-                  src={`${items.img}.svg`}
+                  width="30"
+                  height="30"
+                  alt={tech}
+                  src={`/svg/${tech}.svg`}
                 />
               </div>
             </TooltipTrigger>
             <TooltipContent>
-              <p>{items.name}</p>
+              <p>{tech}</p>
             </TooltipContent>
           </Tooltip>
         ))}

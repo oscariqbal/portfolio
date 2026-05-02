@@ -34,8 +34,8 @@ export default function RootLayout({
           {/* <div className="fixed top-0 left-0 w-full h-[30vh] border-2 border-red-500 pointer-events-none z-50" /> */}
           <Home />
         </section>
-        <Separator className="my-20"/>
-        <main className="w-[90vw] md:w-[85vw] mx-auto flex flex-col gap-40">
+        <Separator className="my-20 md:my-40"/>
+        <main className="flex flex-col gap-20 md:gap-40">
           <Providers>{children}</Providers>
         </main>
         <Footer />

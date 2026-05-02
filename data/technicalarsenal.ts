@@ -1,7 +1,4 @@
-type Arsenal = {
-  arsenal: string
-  techstacks: string[]
-};
+import { Arsenal } from "@/types/technicalarsenal";
 
 export const TechnicalArsenals: Arsenal[] = [
   { 
@@ -9,12 +6,12 @@ export const TechnicalArsenals: Arsenal[] = [
     techstacks: [ "excel", "python", "scikit-learn", "powerBI", ]
   },
   {
-    arsenal: "machine learning", 
-    techstacks: [ "tensorflow", "pytorch", ]
+    arsenal: "AI", 
+    techstacks: [ "tensorflow", "pytorch", "~", ]
   },
   {
     arsenal: "frontend", 
-    techstacks: [ "react", "nextJS", "tailwindCSS", ]
+    techstacks: [ "react", "nextJS", "tailwind", "~", ]
   },
   {
     arsenal: "backend", 
@@ -22,11 +19,11 @@ export const TechnicalArsenals: Arsenal[] = [
   },
   {
     arsenal: "database", 
-    techstacks: [ "postgreSQL", "mySQL", ]
+    techstacks: [ "postgreSQL", "mySQL", "~", ]
   },
   {
     arsenal: "deployment", 
-    techstacks: [ "git", "github", ]
+    techstacks: [ "git", "github", "~", ]
   },
   {
     arsenal: "language", 
