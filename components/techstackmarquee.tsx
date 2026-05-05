@@ -1,13 +1,10 @@
-'use client'
-
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
 import { Marquee } from "@/components/ui/marquee"
 import { cn } from "@/lib/utils"
 
-import { Arsenal } from "@/types/technicalarsenal";
+import { TechnicalArsenalTypes } from "@/types/technicalarsenal";
 
 type Props = {
-  data: Arsenal[];
+  data: TechnicalArsenalTypes[];
 }
 
 function TechstackMarquee({data}: Props) {
@@ -15,31 +12,16 @@ function TechstackMarquee({data}: Props) {
 
   return (
     <>
-      <Marquee className="[--duration:30s] [--gap:3rem] md:[--gap:6rem]">
-        {language?.techstacks.map((tech) => (
-          <Tooltip key={tech}>
-            <TooltipTrigger asChild>
-              <div
-                className={cn(
-                  "relative rounded-xl border p-2 md:p-4",
-                  "bg-foreground/10",
-                  "flex items-center justify-center",
-                )}
-              >
-                <img
-                  className="rounded-sm"
-                  width="30"
-                  height="30"
-                  alt={tech}
-                  src={`/svg/${tech}.svg`}
-                />
-              </div>
-            </TooltipTrigger>
-            <TooltipContent>
-              <p>{tech}</p>
-            </TooltipContent>
-          </Tooltip>
-        ))}
+      <Marquee className="[--duration:30s] [--gap:2rem] sm:[--gap:3rem] md:[--gap:4rem] lg:[--gap:5rem]">
+        {language?.techstacks.map(({name, comp}, i) => {
+          const Comp = comp
+
+          return (
+            <div key={i} className={cn( "relative rounded-xl border-background/30 p-2 sm:p-3 md:p-4 bg-foreground/25 flex items-center justify-center shadow-xl")}>
+              <Comp className="rounded-sm size-10" />
+            </div>
+          )
+      })}
       </Marquee>
       <div className="from-background pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r"></div>
       <div className="from-background pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l"></div>

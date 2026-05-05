@@ -7,8 +7,11 @@ import Header from '@/components/header';
 import Home from '@/components/home';
 import Footer from '@/components/footer';
 import { Providers } from "@/components/ui/tooltipwrapper"
+
 import { LightRays } from "@/components/ui/light-rays";
-import { Separator } from "@/components/ui/separator";
+import { Meteors } from "@/components/ui/meteors"
+
+import { ThemeProvider } from "next-themes"
 
 const inter = Inter({subsets:['latin'],variable:'--font-inter'});
 const manrope = Manrope({subsets:['latin'],variable:'--font-manrope'});
@@ -25,20 +28,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={cn("h-full", "antialiased", "font-sans", inter.variable, manrope.variable, "dark", "scroll-smooth")}>
+    <html lang="en" className={cn("h-full", "antialiased", "font-sans", inter.variable, manrope.variable, "scroll-smooth", "scroll-pt-[12vh]", "sm:scroll-pt-[13vh]", "md:scroll-pt-[14vh]", "lg:scroll-pt-[15vh]")} suppressHydrationWarning>
       <body className="min-h-full flex flex-col">
-        <Header />
-        <section className="overflow-hidden">
-          <LightRays count={5} blur={28} speed={17}/>
-          <div className="absolute pointer-events-none inset-0 bg-gradient-to-b from-transparent from-0% via-transparent via-70% md:via-70% to-background to-100%" />
-          {/* <div className="fixed top-0 left-0 w-full h-[30vh] border-2 border-red-500 pointer-events-none z-50" /> */}
-          <Home />
-        </section>
-        <Separator className="my-20 md:my-40"/>
-        <main className="flex flex-col gap-20 md:gap-40">
-          <Providers>{children}</Providers>
-        </main>
-        <Footer />
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <Header />
+          {/* 
+          <section className="overflow-hidden">
+            <LightRays count={5} blur={28} speed={17}/>
+            <Meteors />
+            <div className="absolute pointer-events-none inset-0 bg-gradient-to-b from-transparent from-0% via-transparent via-70% md:via-70% to-background to-100%" />
+          </section>
+          */}
+          <main className="flex flex-col gap-20 sm:gap-25 md:gap-30 lg:gap-35">
+            {children}
+          </main>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

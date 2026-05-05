@@ -1,9 +1,8 @@
-import Image from "next/image";
 import { Button } from "@/components/ui/button";
 
 export default function Home() {
   return (
-    <section id='home' className='h-[75vh] md:h-[80vh] w-[90vw] md:w-[85vw] mx-auto flex flex-col gap-4 border border-red-500'>
+    <section id='home' className='h-[84vh] sm:h-[83vh] md:h-[82vh] lg:h-[81vh] w-[90vw] sm:w-[88vw] md:w-[86vw] lg:w-[84vw] mx-auto flex flex-col gap-4 border border-red-500'>
       <div className="text-center flex flex-col gap-4 md:gap-6 lg:gap-8 border border-blue-500">
         <h1 className="tracking-wide font-heading font-thin text-2xl sm:text-3xl md:text-4xl lg:text-5xl">Hello! <span className="tracking-normal font-semibold">I'm Iqbal</span></h1>
         <p className="text-xs sm:text-sm md:text-base leading-relaxed text-foreground/60">

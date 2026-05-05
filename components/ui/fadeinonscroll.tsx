@@ -19,7 +19,7 @@ function FadeInOnScroll({
   children,
   className,
   direction = 'up',
-  duration = 0.6,
+  duration = 0.5,
   delay = 0,
   threshold = 0.2,
   triggerOnce = true,
