@@ -18,6 +18,7 @@ import { TechnicalArsenals } from "@/data/technicalarsenal";
 import { Projects } from "@/data/projects";
 import { Experiences } from "@/data/experiences";
 import { Contacts } from "@/data/contacts";
+import OIMIcon from "@/public/icon/OIMIcon";
 
 export default function Main() {
   return (
@@ -25,7 +26,7 @@ export default function Main() {
       <section className='relative h-[72vh] sm:h-[80vh] md:h-[82vh] lg:h-[81vh] w-[90vw] sm:w-[88vw] md:w-[86vw] lg:w-[84vw] mx-auto flex flex-col justify-center items-center gap-4 sm:gap-5 md:gap-6'>
         <div className="absolute z-5 w-full lg:h-full lg:w-auto aspect-square rounded-full bg-[radial-gradient(circle_at_50%_0%,rgb(var(--glow)/0.2)_100%,transparent_0%)] blur-3xl"></div>
         <div className="absolute z-10 bg-foreground/10 w-full lg:h-full lg:w-auto aspect-square rounded-full flex items-center justify-center">
-        
+          
         </div>
         <div className="z-20 text-center flex flex-col gap-4 sm:gap-5 md:gap-6 mt-80">
           <div className="flex justify-center gap-2 md:gap-3">
@@ -43,7 +44,11 @@ export default function Main() {
           </FadeInOnScroll>
         </div>
         <div className="z-20 justify-center flex gap-4 sm:gap-5 md:gap-6 text-center">
-          <FadeInOnScroll delay={0.9} direction="right"><Button size={"sm"} className="cursor-pointer font-heading text-xs sm:text-sm md:text-base md:h-9 md:gap-1.5 md:px-4">View Resume<ArrowUpRight /></Button></FadeInOnScroll>
+          <FadeInOnScroll delay={0.9} direction="right">
+            <Button size={"sm"} asChild className="cursor-pointer font-heading text-xs sm:text-sm md:text-base md:h-9 md:gap-1.5 md:px-4">
+              <Link href="/resume" target="_blank">View Resume<ArrowUpRight /></Link>
+            </Button>
+          </FadeInOnScroll>
           <FadeInOnScroll delay={1.0} direction="left">
             <Button size={"sm"} variant={"outline"} asChild className="cursor-pointer font-heading text-xs sm:text-sm md:text-base md:h-9 md:gap-1.5 md:px-4">
               <Link href='#about'>Get in Touch</Link>
@@ -74,12 +79,13 @@ export default function Main() {
             <div className='w-1/2 text-4xl md:text-5xl lg:text-6xl'>
               <p className="text-[10px] sm:text-xs md:text-sm leading-relaxed opacity-60 mb-2">Projects completed</p>
               <NumberTicker
-                value={10}
+                value={Projects.length - 1}
                 className="text-5xl md:text-6xl lg:text-7xl font-medium tracking-tighter whitespace-pre-wrap"
               />
               +
             </div>
           </div>
+          
           <div>
             <div className="mb-10 flex flex-col text-center gap-4">
               <h2 className="font-heading font-semibold text-xl sm:text-2xl md:text-3xl lg:text-4xl">Where It All Begin</h2>
@@ -96,8 +102,8 @@ export default function Main() {
             <div className="sm:w-[95%] md:w-[85%] lg:w-[75%] mx-auto mt-10 grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 lg:gap-10 justify-between text-center">
               {TechnicalArsenals.slice(0, 6).map(({arsenal, techstacks}, i) => (
                 <FadeInOnScroll key={arsenal} delay={(i+1) / 6}>
-                    <Card className="bg-card/90 w-full shadow-lg">
-                      <CardHeader className="mb-2 capitalize text-sm sm:text-md md:text-base tracking-wide font-semibold">{arsenal}</CardHeader>
+                    <Card className="bg-card/90 w-full shadow-sm">
+                      <CardHeader className="mb-2 capitalize text-sm md:text-base font-semibold">{arsenal}</CardHeader>
                       <CardContent>
                         <div className="inline-block mx-auto">
                           <div className="grid grid-cols-2 gap-4 sm:gap-5 lg:gap-6 items-center justify-center p-3 md:p-4 rounded-xl border border-border bg-border/20">
@@ -114,7 +120,7 @@ export default function Main() {
                       <Separator className="mt-auto"/>
                       <CardFooter className="w-auto grid grid-cols-2 gap-1 md:gap-2">
                         {techstacks.map((techstacks, i) => (
-                          <p key={i} className="capitalize text-xs sm:text-sm md:text-md opacity-90">{techstacks.name}</p>
+                          <p key={i} className="capitalize text-xs sm:text-sm opacity-90">{techstacks.name}</p>
                         ))}
                       </CardFooter>
                     </Card>
@@ -137,16 +143,17 @@ export default function Main() {
           <p className="text-xs md:text-sm opacity-60">A collection of my recent work, side projects, and experiments</p>
         </div>
         <div className="mt-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-5 lg:gap-6">
-            {Projects.map(({slug, name, description, content, category, timestamp, link, github, img}) => (
-              <Link key={slug} href={`/${slug}`}>
-                <Card className="shadow-sm">
-                  <Image src={`/img/${img}.png`} alt={name} width={480} height={258} className="rounded-sm"/>
-                  <CardHeader>
-                    <CardTitle className="text-sm md:text-base line-clamp-2">{name}</CardTitle>
-                    <CardDescription className="text-xs md:text-sm line-clamp-2">{description}</CardDescription>
-                  </CardHeader>
-                </Card>
-              </Link>
+            {Projects.map(({slug, name, description, img}) => (
+              <Card key={name} className="shadow-sm">
+                <Image src={`/img/${img}.png`} alt={name} width={480} height={258} className="rounded-sm"/>
+                <CardHeader className="px-4 lg:px-6">
+                  <CardTitle className="text-sm md:text-base line-clamp-2 font-semibold">{name}</CardTitle>
+                  <CardDescription className="text-xs md:text-sm line-clamp-2">{description}</CardDescription>
+                </CardHeader>
+                <CardFooter>
+                  <Link className="ml-auto underline text-xs md:text-sm" href={`/${slug}`}>See details</Link>
+                </CardFooter>
+              </Card>
             ))}
         </div>
       </section>

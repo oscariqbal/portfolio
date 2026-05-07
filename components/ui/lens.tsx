@@ -2,6 +2,7 @@
 
 import React, { useCallback, useMemo, useRef, useState } from "react"
 import { AnimatePresence, motion, useMotionTemplate } from "motion/react"
+import { cn } from "@/lib/utils"
 
 interface Position {
   /** The x coordinate of the lens */
@@ -11,6 +12,7 @@ interface Position {
 }
 
 interface LensProps {
+  className: string
   /** The children of the lens */
   children: React.ReactNode
   /** The zoom factor of the lens */
@@ -32,6 +34,7 @@ interface LensProps {
 }
 
 export function Lens({
+  className,
   children,
   zoomFactor = 1.3,
   lensSize = 170,
@@ -86,7 +89,7 @@ export function Lens({
         animate={{ opacity: 1, scale: 1 }}
         exit={{ opacity: 0, scale: 0.8 }}
         transition={{ duration }}
-        className="absolute inset-0 overflow-hidden"
+        className={cn("absolute inset-0 overflow-hidden", className)}
         style={{
           maskImage,
           WebkitMaskImage: maskImage,

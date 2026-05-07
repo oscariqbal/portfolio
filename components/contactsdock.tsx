@@ -13,7 +13,7 @@ function ContactDock({data, className}: Props) {
         const Comp = comp
         return (
           <li key={name}>
-            <Link href={link}>
+            <Link href={link} target="_blank">
               <Comp className="p-1 size-8 sm:size-9 md:size-10 text-muted-foreground hover:text-foreground hover:bg-background/30 rounded-xl" width={10} height={10}/>
             </Link>
           </li>

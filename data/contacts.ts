@@ -8,27 +8,27 @@ import { GitHubIcon } from "@/public/icon/github";
 export const Contacts: ContactTypes[] = [
   {
     name: "email",
-    link: "/",
+    link: "https://mailto:oiqbalmustofa@gmail.com",
     comp: EmailIcon,
   },
   {
     name: "instagram",
-    link: "/",
+    link: "https://www.instagram.com/oscariqball",
     comp: InstagramIcon,
   },
   {
     name: "linkedin",
-    link: "/daw",
+    link: "https://www.linkedin.com/in/oscar-iqbal-mustofa-1622243a2",
     comp: LinkedinIcon,
   },
   {
     name: "whatsApp",
-    link: "/",
+    link: "https://wa.me/6285800957241",
     comp: WhatsAppIcon,
   },
   {
     name: "github",
-    link: "/",
+    link: "https://github.com/oscariqbal",
     comp: GitHubIcon,
   },
 ]

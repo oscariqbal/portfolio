@@ -2,6 +2,8 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
+import OIMIcon from "@/public/icon/OIMIcon";
+
 export default function Header() {
     return (
       <header className="h-[12vh] sm:h-[13vh] md:h-[14vh] lg:h-[15vh] w-full sticky top-0 z-50 flex items-center">
@@ -10,7 +12,7 @@ export default function Header() {
             <li>
               <Button variant={"ghost"} size={"sm"} asChild>
                 <Link href='/'>
-                  <Image src="/logo.svg" alt="icon" width={20} height={20} className="rounded-sm"/>
+                  <OIMIcon className="size-5 lg:size-6 text-foreground" />
                 </Link>
               </Button>
             </li>

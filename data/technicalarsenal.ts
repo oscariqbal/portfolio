@@ -22,7 +22,6 @@ import { CssIcon } from "@/public/icon/css";
 import { JavaScriptIcon } from "@/public/icon/javascript";
 import { TypeScriptIcon } from "@/public/icon/typescript";
 import { PHPIcon } from "@/public/icon/php";
-
 import { FallbackIcon } from "@/public/icon/fallback";
 
 export const TechnicalArsenals: TechnicalArsenalTypes[] = [
