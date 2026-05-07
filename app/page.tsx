@@ -18,7 +18,6 @@ import { TechnicalArsenals } from "@/data/technicalarsenal";
 import { Projects } from "@/data/projects";
 import { Experiences } from "@/data/experiences";
 import { Contacts } from "@/data/contacts";
-import OIMIcon from "@/public/icon/OIMIcon";
 
 export default function Main() {
   return (
