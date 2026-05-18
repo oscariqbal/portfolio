@@ -15,8 +15,8 @@ function ExperienceTimelines({data}: Props) {
             <FadeInOnScroll direction={i % 2 === 0 ? "right":"left"} delay={(i+1) / 6}>
               <div className="mt-2">
                 <time dateTime={date.toISOString()} className="text-xs/none font-medium text-foreground/60" >{date.toLocaleDateString()}</time>
-                <h3 className="text-lg font-bold tracking-wide">{title}</h3>
-                <p className="mt-0.5 text-sm text-foreground/60">{description}</p>
+                <h3 className="text-base md:text-lg font-semibold tracking-wide">{title}</h3>
+                <p className="mt-0.5 text-xs md:text-sm text-foreground/60">{description}</p>
               </div>
             </FadeInOnScroll>
           </div>

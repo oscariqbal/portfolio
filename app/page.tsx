@@ -23,12 +23,13 @@ export default function Main() {
   return (
     <>
       <section className='relative h-[72vh] sm:h-[80vh] md:h-[82vh] lg:h-[81vh] w-[90vw] sm:w-[88vw] md:w-[86vw] lg:w-[84vw] mx-auto flex flex-col justify-center items-center gap-4 sm:gap-5 md:gap-6'>
-        <div className="absolute z-5 w-full lg:h-full lg:w-auto aspect-square rounded-full bg-[radial-gradient(circle_at_50%_0%,rgb(var(--glow)/0.2)_100%,transparent_0%)] blur-3xl"></div>
-        <div className="absolute z-10 bg-foreground/10 w-full lg:h-full lg:w-auto aspect-square rounded-full flex items-center justify-center">
-          
+        <div className="absolute z-5 w-full lg:h-full lg:w-auto aspect-square rounded-full bg-[radial-gradient(circle_at_50%_0%,rgb(var(--glow)/0.1)_100%,transparent_0%)] blur-3xl scale-100 animate-shrink"></div>
+        <div className="absolute z-10 bg-foreground/30 w-full lg:h-full lg:w-auto aspect-square rounded-full flex overflow-hidden items-center justify-center scale-100 animate-shrink">
+          <Image priority src="/img/profilev9.png" alt="Profile Image" fill sizes="10" className="object-cover opacity-90 contrast-90"/>
         </div>
+        <div className="absolute z-15 bg-background/15 w-full lg:h-full lg:w-auto aspect-square rounded-full flex overflow-hidden items-center justify-center scale-100 animate-shrink"></div>
         <div className="z-20 text-center flex flex-col gap-4 sm:gap-5 md:gap-6 mt-80">
-          <div className="flex justify-center gap-2 md:gap-3">
+          <div className="flex justify-center gap-2 md:gap-3 bg-background/40 py-1.5">
             <TextAnimate animation="blurInUp" by="character" as="h1" className="tracking-wide font-heading font-thin text-2xl sm:text-3xl md:text-4xl lg:text-5xl" once>
               Hello! 
             </TextAnimate> 
@@ -37,19 +38,19 @@ export default function Main() {
             </TextAnimate>
           </div>
           <FadeInOnScroll delay={0.6}>
-            <p className="text-xs sm:text-sm md:text-base leading-relaxed text-foreground/60 px-10">
+            <p className="text-xs sm:text-sm md:text-base leading-relaxed text-foreground/60 px-10 bg-background/40 py-1.5">
               An Informatics graduate continuously building on <span className="font-semibold text-foreground/80">Data Analytics</span>, <span className="font-semibold text-foreground/80">Artificial Intelligence</span>, and <span className="font-semibold text-foreground/80">Web Development.</span>
             </p>
           </FadeInOnScroll>
         </div>
         <div className="z-20 justify-center flex gap-4 sm:gap-5 md:gap-6 text-center">
           <FadeInOnScroll delay={0.9} direction="right">
-            <Button size={"sm"} asChild className="cursor-pointer font-heading text-xs sm:text-sm md:text-base md:h-9 md:gap-1.5 md:px-4">
-              <Link href="/resume" target="_blank">View Resume<ArrowUpRight /></Link>
+            <Button asChild className="cursor-pointer font-heading text-xs sm:text-sm md:text-base md:h-9 md:gap-1.5 md:px-4">
+              <Link href="/Oscar-Iqbal-Mustofa-Resume.pdf" target="_blank">View Resume<ArrowUpRight /></Link>
             </Button>
           </FadeInOnScroll>
           <FadeInOnScroll delay={1.0} direction="left">
-            <Button size={"sm"} variant={"outline"} asChild className="cursor-pointer font-heading text-xs sm:text-sm md:text-base md:h-9 md:gap-1.5 md:px-4">
+            <Button variant={"outline"} asChild className="cursor-pointer font-heading text-xs sm:text-sm md:text-base md:h-9 md:gap-1.5 md:px-4">
               <Link href='#about'>Get in Touch</Link>
             </Button>
           </FadeInOnScroll>
@@ -143,14 +144,16 @@ export default function Main() {
         </div>
         <div className="mt-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-5 lg:gap-6">
             {Projects.map(({slug, name, description, img}) => (
-              <Card key={name} className="shadow-sm">
+              <Card key={name} className="shadow-sm pb-4">
                 <Image src={`/img/${img}.png`} alt={name} width={480} height={258} className="rounded-sm"/>
-                <CardHeader className="px-4 lg:px-6">
+                <CardHeader className="px-4 gap-2">
                   <CardTitle className="text-sm md:text-base line-clamp-2 font-semibold">{name}</CardTitle>
                   <CardDescription className="text-xs md:text-sm line-clamp-2">{description}</CardDescription>
                 </CardHeader>
-                <CardFooter>
-                  <Link className="ml-auto underline text-xs md:text-sm" href={`/${slug}`}>See details</Link>
+                <CardFooter className="px-4 mt-auto">
+                  <Button asChild size={"sm"} variant={"link"} className="ml-auto cursor-pointer font-heading text-xs sm:text-sm">
+                    <Link href={`/${slug}`}>See details</Link>
+                  </Button>
                 </CardFooter>
               </Card>
             ))}

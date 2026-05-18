@@ -160,3 +160,18 @@
     @apply font-sans;
   }
 }
+
+@keyframes shrink {
+  from {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1.0);
+    opacity: 1;
+  }
+}
+
+.animate-shrink {
+  animation: shrink 2.0s ease forwards;
+}

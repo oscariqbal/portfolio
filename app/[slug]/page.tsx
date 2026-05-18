@@ -58,58 +58,40 @@ export default async function Page({ params, }: { params: Promise<{ slug: string
         </Breadcrumb>
       </div>
       <div className="mt-6 md:mt-7 grid grid-cols-1 lg:grid-cols-2 gap-9 lg:gap-10 mb-20 sm:mb-25 md:mb-30 lg:mb-35">
-        <FadeInOnScroll>
-          <div className="order-2 lg:order-1 px-2 lg:px-0 flex flex-col gap-6 md:gap-7">
+        <FadeInOnScroll className="order-2 lg:order-1">
+          <div className="px-2 lg:px-0 flex flex-col gap-6 md:gap-7">
             <h2 className="font-heading font-semibold text-xl sm:text-2xl md:text-3xl lg:text-4xl">{name}</h2>
             <div className="flex gap-6 md:gap-7">
               <Badge variant={"default"}>{category}</Badge>
               <Badge variant={"secondary"}>{timestamp}</Badge>
             </div>
             <Separator />
-            <p className="text-sm md:text-base opacity-60 leading-6">{content}</p>
+            <p className="text-xs md:text-sm md:text-base opacity-60 leading-6">{content}</p>
             <div className="flex gap-6 md:gap-7">
-              <Button variant={"default"} size={"sm"} asChild className="cursor-pointer font-heading text-xs sm:text-sm md:text-base md:h-9 md:gap-1.5 md:px-4">
-                <Link href={link}>Visit Page<ArrowUpRight /></Link>
-              </Button>
-              <Button variant={"outline"} size={"sm"} asChild className="cursor-pointer font-heading text-xs sm:text-sm md:text-base md:h-9 md:gap-1.5 md:px-4">
-                <Link href={github}>GitHub Repo</Link>
-              </Button>
+              { link === "-" ? (
+                  <Button disabled variant={"default"} size={"sm"} className="font-heading text-xs sm:text-sm md:text-base md:h-9 md:gap-1.5 md:px-4">
+                    Visit Page <ArrowUpRight />
+                  </Button>
+              ) : (
+                <Button variant={"default"} size={"sm"} asChild className="cursor-pointer font-heading text-xs sm:text-sm md:text-base md:h-9 md:gap-1.5 md:px-4">
+                  <Link href={link}>Visit Page<ArrowUpRight /></Link>
+                </Button>
+              )}
+              { github === "-" ? (
+                  <Button disabled variant={"outline"} size={"sm"} className="font-heading text-xs sm:text-sm md:text-base md:h-9 md:gap-1.5 md:px-4">
+                    GitHub Repo
+                  </Button>
+              ) : (
+                <Button variant={"outline"} size={"sm"} asChild className="cursor-pointer font-heading text-xs sm:text-sm md:text-base md:h-9 md:gap-1.5 md:px-4">
+                  <Link href={github}>GitHub Repo</Link>
+                </Button>
+              )}
             </div>
           </div>
         </FadeInOnScroll>
-        <FadeInOnScroll>
-          <div className="order-1 lg:order-2 relative w-full aspect-[480/258]">
-              <Image src={`/img/${img}.png`} alt={name} fill className="rounded-xl object-cover"/>
-          </div>
-        </FadeInOnScroll>
-        <FadeInOnScroll className="order-4 lg:order-4">
-          <div>
-            <Card className="bg-card/90 shadow-sm gap-4 lg:gap-6">
-              <CardHeader className="px-4 lg:px-6">
-                <CardTitle>
-                  <Item className="gap-2.5 lg:gap-3.5 px-3 lg:px-4 py-2.5 lg:py-3.5">
-                    <ItemMedia variant="image">
-                      <Layers className="size-6"/>
-                    </ItemMedia>
-                    <ItemContent>
-                      <ItemTitle className="text-lg md:text-xl lg:text-2xl font-semibold">Key Features</ItemTitle>
-                    </ItemContent>
-                  </Item>
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="px-4 lg:px-6">
-                {features.map(({name, description}, i) => (
-                  <Accordion key={i} type="multiple">
-                    <AccordionItem value={name}>
-                      <AccordionTrigger className="text-sm lg:text-base">{name}</AccordionTrigger>
-                      <AccordionContent className="text-sm opacity-60 leading-6">
-                        {description}
-                      </AccordionContent>
-                    </AccordionItem>
-                  </Accordion>
-                ))}
-              </CardContent>
-            </Card>
+        <FadeInOnScroll className="order-1 lg:order-2">
+          <div className="relative w-full aspect-[480/258]">
+              <Image priority src={`/img/${img}.png`} alt={name} fill className="rounded-xl object-cover"/>
           </div>
         </FadeInOnScroll>
         <div className="flex flex-col gap-8 lg:gap-9 order-3 lg:order-3 px-2 lg:px-0">
@@ -138,7 +120,7 @@ export default async function Page({ params, }: { params: Promise<{ slug: string
             </FadeInOnScroll>
           </div>
           <div className="flex flex-col gap-6 md:gap-7">
-            <FadeInOnScroll>
+            <FadeInOnScroll className="flex flex-col gap-4 md:gap-5">
               <h3 className="text-center font-heading font-semibold text-lg md:text-xl lg:text-2xl">Tech Used</h3>
               <div className="mx-auto w-[55px] sm:w-[70px] md:w-[85px] lg:w-[100px] border border-foreground border-2 rounded"></div>
             </FadeInOnScroll>
@@ -162,6 +144,36 @@ export default async function Page({ params, }: { params: Promise<{ slug: string
             </div>
           </div>
         </div>
+        <FadeInOnScroll className="order-4 lg:order-4">
+          <div>
+            <Card className="bg-card/90 shadow-sm gap-4 lg:gap-6">
+              <CardHeader className="px-4 lg:px-6">
+                <CardTitle>
+                  <Item className="gap-2.5 lg:gap-3.5 px-3 lg:px-4 py-2.5 lg:py-3.5">
+                    <ItemMedia variant="image">
+                      <Layers className="size-6"/>
+                    </ItemMedia>
+                    <ItemContent>
+                      <ItemTitle className="text-lg md:text-xl lg:text-2xl font-semibold">Key Features</ItemTitle>
+                    </ItemContent>
+                  </Item>
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="px-4 lg:px-6">
+                {features.map(({name, description}, i) => (
+                  <Accordion key={i} type="multiple">
+                    <AccordionItem value={name}>
+                      <AccordionTrigger className="text-sm lg:text-base">{name}</AccordionTrigger>
+                      <AccordionContent className="text-xs lg:text-sm opacity-60 leading-6">
+                        {description}
+                      </AccordionContent>
+                    </AccordionItem>
+                  </Accordion>
+                ))}
+              </CardContent>
+            </Card>
+          </div>
+        </FadeInOnScroll>
       </div>
     </div>
   );

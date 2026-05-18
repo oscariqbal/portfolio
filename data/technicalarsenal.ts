@@ -37,7 +37,7 @@ export const TechnicalArsenals: TechnicalArsenalTypes[] = [
         comp: PythonIcon,
       },
       {
-        name: "scikit-learn",
+        name: "scikitlearn",
         comp: ScikitlearnIcon,
       },
       {
